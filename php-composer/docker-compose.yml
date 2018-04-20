@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  latest:
+    image: meteorlxy/php-composer:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
