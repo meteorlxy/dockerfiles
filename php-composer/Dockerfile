@@ -17,7 +17,7 @@ RUN set -x \
   && composer config -g repo.packagist composer https://packagist.phpcomposer.com \
   && chmod 644 ${COMPOSER_HOME}/config.json ${COMPOSER_HOME}/auth.json \
   && chmod 777 ${COMPOSER_HOME}/cache
-    
+
 VOLUME ["${COMPOSER_HOME}/cache"]
 
 WORKDIR /tmp
