@@ -51,6 +51,7 @@ RUN BASE_PACKAGES="ca-certificates curl git python software-properties-common tz
       # ------------------------------------------------------------------------------
       # Install Python & pip
       # ------------------------------------------------------------------------------
+      && apt-get install --no-install-recommends -y python-dev python3-dev \
       && curl -L https://bootstrap.pypa.io/get-pip.py | python2 \
       && curl -L https://bootstrap.pypa.io/get-pip.py | python3 \
       && pip --no-cache-dir install pipenv \
