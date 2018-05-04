@@ -9,12 +9,14 @@ USER root
 ENV C9_WORKSPACE="/workspace" \
     C9_AUTH_USER="user" \
     C9_AUTH_PASSWORD="password" \
-    TZ="Asia/Shanghai"
+    TZ="Asia/Shanghai" \
+    LC_ALL="C.UTF-8" \
+    LANG="C.UTF-8"
 
 ARG NODE_VERSION="10.x"
 ARG PHP_VERSION="7.2"
 
-RUN BASE_PACKAGES="ca-certificates curl git python2.7 software-properties-common tzdata wget" \
+RUN BASE_PACKAGES="ca-certificates curl gnupg git python2.7 software-properties-common tzdata wget" \
     BUILD_PACKAGES="build-essential" \
     set -x \
       && export DEBIAN_FRONTEND=noninteractive \
@@ -29,9 +31,6 @@ RUN BASE_PACKAGES="ca-certificates curl git python2.7 software-properties-common
         zip \
         ${BASE_PACKAGES} \
         ${BUILD_PACKAGES} \
-      && echo 'export LC_ALL="C.UTF-8"' >> /etc/profile \
-      && echo 'export LANG="C.UTF-8"' >> /etc/profile \
-      && . /etc/profile \
       # ------------------------------------------------------------------------------
       # Install Cloud9
       # ------------------------------------------------------------------------------
