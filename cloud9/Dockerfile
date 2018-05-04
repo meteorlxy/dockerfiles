@@ -1,4 +1,4 @@
-FROM krallin/ubuntu-tini:xenial
+FROM ubuntu:latest
 
 LABEL maintainer.name="meteorlxy" \
       maintainer.email="meteor.lxy@foxmail.com" \
@@ -8,13 +8,13 @@ USER root
 
 ENV C9_WORKSPACE="/workspace" \
     C9_AUTH_USER="user" \
-    C9_AUTH_PASSWORD="password"
+    C9_AUTH_PASSWORD="password" \
+    TZ="Asia/Shanghai"
 
-ARG TIMEZONE="Asia/Shanghai"
-ARG NODE_VERSION="8.x"
+ARG NODE_VERSION="10.x"
 ARG PHP_VERSION="7.2"
 
-RUN BASE_PACKAGES="ca-certificates curl git python software-properties-common tzdata wget" \
+RUN BASE_PACKAGES="ca-certificates curl git python2.7 software-properties-common tzdata wget" \
     BUILD_PACKAGES="build-essential" \
     set -x \
       && export DEBIAN_FRONTEND=noninteractive \
@@ -32,8 +32,6 @@ RUN BASE_PACKAGES="ca-certificates curl git python software-properties-common tz
       && echo 'export LC_ALL="C.UTF-8"' >> /etc/profile \
       && echo 'export LANG="C.UTF-8"' >> /etc/profile \
       && . /etc/profile \
-      && echo ${TIMEZONE} > /etc/timezone \
-      && cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
       # ------------------------------------------------------------------------------
       # Install Cloud9
       # ------------------------------------------------------------------------------
@@ -90,4 +88,4 @@ COPY ./build/docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 80
 
-ENTRYPOINT ["/usr/local/bin/tini", "--", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
