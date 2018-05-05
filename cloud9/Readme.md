@@ -10,7 +10,7 @@
 Sample `docker-compose.yml`
 
 ```yaml
-version: '3'
+version: '2.4'
 
 services:
   cloud9:
