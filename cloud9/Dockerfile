@@ -13,7 +13,7 @@ ENV C9_WORKSPACE="/workspace" \
     LC_ALL="C.UTF-8" \
     LANG="C.UTF-8"
 
-ARG NODE_VERSION="10.x"
+ARG NODE_VERSION="8.x"
 ARG PHP_VERSION="7.2"
 
 RUN BASE_PACKAGES="ca-certificates curl gnupg git python2.7 software-properties-common tzdata wget" \
