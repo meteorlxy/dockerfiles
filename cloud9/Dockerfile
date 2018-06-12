@@ -36,6 +36,7 @@ RUN BASE_PACKAGES="ca-certificates curl gnupg git python2.7 software-properties-
       # ------------------------------------------------------------------------------
       && git clone --single-branch --depth 1 https://github.com/c9/core.git /cloud9 \
       && /cloud9/scripts/install-sdk.sh \
+      && ln -s /cloud9/bin/c9 /usr/local/bin \
       # ------------------------------------------------------------------------------
       # Install Nodejs & npm & yarn
       # ------------------------------------------------------------------------------
