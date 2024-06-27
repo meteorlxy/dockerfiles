@@ -17,7 +17,7 @@ services:
 
   pgadmin:
     container_name: jerry-pgadmin
-    image: dpage/pgadmin4:latest
+    image: dpage/pgadmin4:8.4
     restart: always
     ports:
       - 60081:80
