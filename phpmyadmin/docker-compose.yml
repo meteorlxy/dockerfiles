@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:5.2.1
+    restart: always
+    ports:
+      - 50080:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - wp_env
+
+networks:
+  wp_env:
+    name: e3df65988aab215ff3c511e001e60bc0_default
+    external: true
