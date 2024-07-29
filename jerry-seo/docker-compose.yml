@@ -1,0 +1,10 @@
+services:
+  e2e:
+    container_name: jerry-seo-e2e
+    image: mcr.microsoft.com/playwright:v1.45.3-jammy
+    working_dir: /app/e2e
+    network_mode: host
+    environment:
+      - CI=true
+    volumes:
+      - ..:/app
