@@ -7,6 +7,9 @@ services:
       - 50080:80
     environment:
       - PMA_ARBITRARY=1
+      - PMA_HOSTS=192.168.172.3,192.168.172.4
+      - PMA_USER=root
+      - PMA_PASSWORD=password
     networks:
       - wp_env
 
