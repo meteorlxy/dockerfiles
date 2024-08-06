@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   pgsql:
     container_name: jerry-pgsql
